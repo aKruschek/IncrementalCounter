@@ -22,13 +22,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Resource wood = new Resource("Wood");
-        Resource metal = new Resource("Metal");
+        Resource[] resources = {new Resource("Wood"), new Resource ("Metal")};
 
         TextView textView = findViewById(R.id.wood);
-        textView.setText(wood.getName());
+        textView.setText(resources[0].getName());
         textView = findViewById(R.id.metal);
-        textView.setText(metal.getName());
+        textView.setText(resources[1].getName());
 
     }
 
