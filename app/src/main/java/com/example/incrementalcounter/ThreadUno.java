@@ -30,6 +30,7 @@ public class ThreadUno extends Thread {
                 e.printStackTrace();
             }
             textView.setText(Integer.toString(value));
+            start++;
         }
     }
 
