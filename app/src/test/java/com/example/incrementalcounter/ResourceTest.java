@@ -31,4 +31,14 @@ public class ResourceTest {
         wood.manualCollection(7);
         assertEquals(8, wood.getTotal());
     }
+
+    @Test
+    public void resourceSubtractTotalTest()
+    {
+        Resource wood = new Resource("wood");
+        wood.manualCollection(15);
+
+        wood.spend(10);
+        assertEquals(5, wood.getTotal());
+    }
 }

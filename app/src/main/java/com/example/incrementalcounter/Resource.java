@@ -32,4 +32,9 @@ public class Resource {
     {
         total += clickRate;
     }
+
+    public void spend(int cost)
+    {
+        total -= cost;
+    }
 }
