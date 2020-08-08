@@ -11,22 +11,52 @@
         android:id="@+id/metal"
         android:layout_width="173dp"
         android:layout_height="65dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textSize="36sp"
-        app:layout_constraintTop_toBottomOf="@+id/wood"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wood" />
 
     <TextView
         android:id="@+id/wood"
         android:layout_width="173dp"
         android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textSize="36sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/metalTotal"
+        android:layout_width="173dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/metal"
+        app:layout_constraintTop_toBottomOf="@+id/woodTotal" />
+
+    <TextView
+        android:id="@+id/woodTotal"
+        android:layout_width="173dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/wood"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
