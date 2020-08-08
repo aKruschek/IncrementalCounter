@@ -21,19 +21,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void addOne(View view)
-    {
+        Resource wood = new Resource("Wood");
+        Resource metal = new Resource("Metal");
 
-        //Get value from number box and add 1.
-        TextView textView = findViewById(R.id.numberBox);
-        int value = parseInt(textView.getText().toString());
-
-       ThreadUno threadUno = new ThreadUno(textView, value, 30);
-
-       threadUno.start();
+        TextView textView = findViewById(R.id.wood);
+        textView.setText(wood.getName());
+        textView = findViewById(R.id.metal);
+        textView.setText(metal.getName());
 
     }
+
+//    public void addOne(View view)
+//    {
+//
+//        //Get value from number box and add 1.
+//        TextView textView = findViewById(R.id.numberBox);
+//        int value = parseInt(textView.getText().toString());
+//
+//       ThreadUno threadUno = new ThreadUno(textView, value, 30);
+//
+//       threadUno.start();
+//
+//    }
 
 }
