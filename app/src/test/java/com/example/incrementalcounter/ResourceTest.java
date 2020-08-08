@@ -1,10 +1,17 @@
 package com.example.incrementalcounter;
 
+import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
 public class ResourceTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Test
     public void resourceNameIsCorrect()
     {
@@ -33,12 +40,20 @@ public class ResourceTest {
     }
 
     @Test
-    public void resourceSubtractTotalTest()
-    {
+    public void resourceSubtractTotalTest() throws Exception {
         Resource wood = new Resource("wood");
         wood.manualCollection(15);
 
         wood.spend(10);
         assertEquals(5, wood.getTotal());
+    }
+
+    @Test
+    public void cannotSpendMoreThanOwned() throws Exception {
+        Resource wood = new Resource("wood");
+
+        thrown.expect(Exception.class);
+        thrown.expectMessage("Insufficient resources");
+        wood.spend(10);
     }
 }

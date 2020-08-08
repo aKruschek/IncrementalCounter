@@ -33,8 +33,11 @@ public class Resource {
         total += clickRate;
     }
 
-    public void spend(int cost)
-    {
+    public void spend(int cost) throws Exception {
+        if(cost > total)
+        {
+            throw new Exception("Insufficient resources");
+        }
         total -= cost;
     }
 }
