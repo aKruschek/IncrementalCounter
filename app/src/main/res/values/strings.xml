@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Incremental Counter</string>
+    <string name="zero_value">0</string>
+</resources>
