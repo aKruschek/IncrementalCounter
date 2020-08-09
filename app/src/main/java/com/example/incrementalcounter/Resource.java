@@ -4,13 +4,13 @@ public class Resource {
 
     private String name;
     private int total;
-    private double rate;
+    private int rate;
 
     public Resource(String name)
     {
         this.name = name;
         total = 0;
-        rate = 1.0;
+        rate = 1;
     }
 
     public String getName()
@@ -25,7 +25,7 @@ public class Resource {
 
     public void setRate(double addRate)
     {
-        rate += addRate;
+        rate = (int)Math.ceil(rate * addRate);
     }
 
     public void autoCollection()
@@ -46,7 +46,7 @@ public class Resource {
         total -= cost;
     }
 
-    public double getRate() {
+    public int getRate() {
         return rate;
     }
 }
