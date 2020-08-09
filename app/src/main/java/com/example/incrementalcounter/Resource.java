@@ -23,6 +23,11 @@ public class Resource {
         return total;
     }
 
+    public void setRate(double addRate)
+    {
+        rate += addRate;
+    }
+
     public void autoCollection()
     {
         total += rate;
@@ -36,7 +41,7 @@ public class Resource {
     public void spend(int cost) throws Exception {
         if(cost > total)
         {
-            throw new Exception("Insufficient resources");
+            throw new Exception("Insufficient resources, can not spend " + cost + " of " + total + ".");
         }
         total -= cost;
     }

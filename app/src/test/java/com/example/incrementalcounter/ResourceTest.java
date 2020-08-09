@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class ResourceTest {
 
@@ -55,5 +56,16 @@ public class ResourceTest {
         thrown.expect(Exception.class);
         thrown.expectMessage("Insufficient resources");
         wood.spend(10);
+    }
+
+    @Test
+    public void canSpendSameAsTotal() throws Exception
+    {
+        Resource wood = new Resource("Wood");
+
+        wood.manualCollection(20);
+        wood.spend(20);
+
+        assertEquals(0, wood.getTotal());
     }
 }
