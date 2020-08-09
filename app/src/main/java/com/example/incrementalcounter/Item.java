@@ -41,7 +41,7 @@ public class Item {
 
         if(everythingGood)
         {
-            affected.setRate(0.1);
+            affected.setRate(1.5);
             owned ++;
 
             for(ItemCost ic : items)
