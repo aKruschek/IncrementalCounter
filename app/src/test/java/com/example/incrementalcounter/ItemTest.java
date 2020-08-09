@@ -30,7 +30,7 @@ public class ItemTest {
 
 
 
-        assertEquals(0, wood.getTotal());
+        assertEquals(1, wood.getTotal());
         assertEquals(0, metal.getTotal());
         assertEquals(1.1, metal.getRate(), 0.0);
         assertEquals(1.0, wood.getRate(), 0.0);
