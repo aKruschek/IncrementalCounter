@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import static java.lang.Integer.parseInt;
@@ -31,14 +30,22 @@ public class MainActivity extends AppCompatActivity {
 
         ResourceView[] rv = {new ResourceView(resources[0], (TextView) findViewById(R.id.woodTotal)),
         new ResourceView(resources[1], (TextView) findViewById(R.id.metalTotal))};
-        
+
         Calculator calc = new Calculator(rv);
 
         calc.start();
 
     }
 
-//    public void addOne(View view)
+
+    public void openUpgrades(View view) {
+
+        Intent intent = new Intent(this, Upgrades.class);
+        startActivity(intent);
+
+    }
+
+    //    public void addOne(View view)
 //    {
 //
 //        //Get value from number box and add 1.
