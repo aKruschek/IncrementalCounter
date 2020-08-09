@@ -68,4 +68,47 @@ public class ResourceTest {
 
         assertEquals(0, wood.getTotal());
     }
+
+
+    @Test
+    public void checkRateChangesCorrectly()
+    {
+        Resource wood = new Resource("Wood");
+
+        wood.setRate(1.5);
+
+        assertEquals(2, wood.getRate());
+    }
+
+    @Test
+    public void rateModifiesCollection()
+    {
+        Resource wood = new Resource("Wood");
+
+        wood.setRate(2.0);
+        wood.autoCollection();
+
+        assertEquals(2, wood.getTotal());
+    }
+
+    @Test
+    public void rateModifiesCollection2()
+    {
+        Resource wood = new Resource("Wood");
+
+        wood.setRate(1.5);
+
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+        wood.autoCollection();
+
+        assertEquals(20, wood.getTotal());
+    }
 }
