@@ -43,16 +43,12 @@ public class Item {
         {
             affected.setRate(0.1);
             owned ++;
-        }
 
-        for(ItemCost ic : items)
-        {
-            if(everythingGood)
+            for(ItemCost ic : items)
             {
                 ic.getResource().spend(ic.getCost());
                 ic.changeCost(2);
             }
         }
-
     }
 }

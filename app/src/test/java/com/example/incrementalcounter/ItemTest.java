@@ -20,7 +20,6 @@ public class ItemTest {
 
     @Test
     public void checkBuyWorks() throws Exception {
-//        Item pickaxe = new Item("Pickaxe", wood, metal);
 
         ItemCost[] itemCosts = {new ItemCost(wood, 20), new ItemCost(metal, 30)};
         Item pickaxe = new Item("Pickaxe", itemCosts, metal);
