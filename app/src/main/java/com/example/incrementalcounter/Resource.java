@@ -45,4 +45,8 @@ public class Resource {
         }
         total -= cost;
     }
+
+    public double getRate() {
+        return rate;
+    }
 }

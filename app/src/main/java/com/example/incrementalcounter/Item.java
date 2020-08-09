@@ -4,18 +4,16 @@ public class Item {
 
     private int owned;
     private String name;
-    private Resource resource, resource1;
     private double rateAddition;
-    private int cost, cost1;
+    private ItemCost[] items;
+    private Resource affected;
 
-    public Item(String name, Resource resource, Resource resource1)
+    public Item(String name, ItemCost[] items, Resource affected)
     {
         this.name = name;
-        this.resource = resource;
-        this.resource1 = resource1;
         rateAddition = 0.1;
-        cost = 20; //wood
-        cost1 = 30; //metal
+        this.items = items;
+        this.affected = affected;
     }
 
 
@@ -30,17 +28,30 @@ public class Item {
 
     public void buy() throws Exception {
 
-        if(cost <= resource.getTotal() && cost1 <= resource1.getTotal()) {
-            resource.setRate(rateAddition);
+        boolean everythingGood = true;
 
+        for(ItemCost ic : items)
+        {
+            if (ic.getCost() > ic.getResource().getTotal())
+            {
+                everythingGood = false;
+            }
+
+        }
+
+        if(everythingGood)
+        {
+            affected.setRate(0.1);
             owned ++;
+        }
 
-            resource.spend(cost);
-            resource1.spend(cost1);
-
-            cost *= 1.2;
-            rateAddition *= 1.2;
-
+        for(ItemCost ic : items)
+        {
+            if(everythingGood)
+            {
+                ic.getResource().spend(ic.getCost());
+                ic.changeCost(2);
+            }
         }
 
     }
