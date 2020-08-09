@@ -2,17 +2,17 @@ package com.example.incrementalcounter;
 
 public class Calculator extends Thread{
 
-    private ResourceView[] rv;
+    private Resource[] resources;
 
-    public Calculator(ResourceView[] rv) {
-        this.rv = rv;
+    public Calculator(Resource[] resources) {
+        this.resources = resources;
     }
 
     @Override
     public void run() {
 
         while(true) {
-            for (ResourceView r : rv) {
+            for (Resource r : resources) {
                 r.autoCollection();
             }
 

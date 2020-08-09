@@ -14,26 +14,27 @@ public class MainActivity extends AppCompatActivity {
     private static final String VALUE = "com.example.incrmentalcounter.VALUE";
     private static final String RUNBOOLEAN = "com.example.incrementalcounter.RUNBOOLEAN";
     public static int value = 0;
-    public  boolean run = true;
+    private boolean run = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Resource[] resources = {new Resource("Wood"), new Resource ("Metal")};
+        Application appState = ((Application)getApplicationContext());
+        Resource[] resources = appState.getGameResources();
 
-        TextView textView = findViewById(R.id.wood);
-        textView.setText(resources[0].getName());
-        textView = findViewById(R.id.metal);
-        textView.setText(resources[1].getName());
+            TextView textView = findViewById(R.id.wood);
+            textView.setText(resources[0].getName());
+            textView = findViewById(R.id.metal);
+            textView.setText(resources[1].getName());
 
-        ResourceView[] rv = {new ResourceView(resources[0], (TextView) findViewById(R.id.woodTotal)),
-        new ResourceView(resources[1], (TextView) findViewById(R.id.metalTotal))};
+            ResourceView[] rv = {new ResourceView(resources[0], (TextView) findViewById(R.id.woodTotal)),
+                    new ResourceView(resources[1], (TextView) findViewById(R.id.metalTotal))};
 
-        Calculator calc = new Calculator(rv);
+            TextViewUpdater tvu = new TextViewUpdater(rv);
 
-        calc.start();
+            tvu.start();
 
     }
 
@@ -44,18 +45,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
-    //    public void addOne(View view)
-//    {
-//
-//        //Get value from number box and add 1.
-//        TextView textView = findViewById(R.id.numberBox);
-//        int value = parseInt(textView.getText().toString());
-//
-//       ThreadUno threadUno = new ThreadUno(textView, value, 30);
-//
-//       threadUno.start();
-//
-//    }
 
 }

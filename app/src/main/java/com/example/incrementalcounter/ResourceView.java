@@ -14,9 +14,14 @@ public class ResourceView {
         tv.setText(Integer.toString(res.getTotal()));
     }
 
-    public void autoCollection()
+//    public void autoCollection()
+//    {
+//        res.autoCollection();
+//        tv.setText(Integer.toString(res.getTotal()));
+//    }
+
+    public void setText()
     {
-        res.autoCollection();
         tv.setText(Integer.toString(res.getTotal()));
     }
 }
