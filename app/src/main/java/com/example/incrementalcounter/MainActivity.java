@@ -29,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.metal);
         textView.setText(resources[1].getName());
 
-        textView = findViewById(R.id.woodTotal);
-        textView.setText(Integer.toString(resources[0].getTotal()));
-        textView = findViewById(R.id.metalTotal);
-        textView.setText(Integer.toString(resources[1].getTotal()));
+        ResourceView[] rv = {new ResourceView(resources[0], (TextView) findViewById(R.id.woodTotal)),
+        new ResourceView(resources[1], (TextView) findViewById(R.id.metalTotal))};
+        
+        Calculator calc = new Calculator(rv);
+
+        calc.start();
 
     }
 
