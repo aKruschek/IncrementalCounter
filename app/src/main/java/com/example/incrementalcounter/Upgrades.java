@@ -26,18 +26,8 @@ public class Upgrades extends AppCompatActivity {
         itemCostsPickaxe = pickaxe.getItemCosts();
         itemCostsAxe = axe.getItemCosts();
 
-//        TextView textView = findViewById(R.id.pickaxeName);
-//        textView.setText(items[0].getName());
-//        textView = findViewById(R.id.axeName);
-//        textView.setText(items[1].getName());
-
         findAndSetText(R.id.pickaxeName, pickaxe.getName());
         findAndSetText(R.id.axeName, axe.getName());
-
-//        textView = findViewById(R.id.pickaxeOwned);
-//        textView.setText(Integer.toString(pickaxe.getOwned()));
-//        textView = findViewById(R.id.axeOwned);
-//        textView.setText(Integer.toString(axe.getOwned()));
 
         findAndSetText(R.id.pickaxeOwned, Integer.toString(pickaxe.getOwned()));
         findAndSetText(R.id.axeOwned, Integer.toString(axe.getOwned()));
