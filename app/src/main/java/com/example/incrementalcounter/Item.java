@@ -51,4 +51,9 @@ public class Item {
             }
         }
     }
+
+    public ItemCost[] getItemCosts()
+    {
+        return items;
+    }
 }
