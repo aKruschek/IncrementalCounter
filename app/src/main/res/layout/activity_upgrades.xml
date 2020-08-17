@@ -6,17 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".Upgrades">
 
+    <TextView
+        android:id="@+id/axeWoodCostNum"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="228dp"
+        android:layout_marginRight="228dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pickaxeWoodCostName"
+        app:layout_constraintTop_toBottomOf="@+id/axeName" />
+
+    <TextView
+        android:id="@+id/axeWoodCostName"
+        android:layout_width="72dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/pickaxeWoodCostNum"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyAxe2" />
+
+    <TextView
+        android:id="@+id/pickaxeMetalCostName"
+        android:layout_width="72dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="108dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/pickaxeMetalCostNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/axeMetalCostName"
+        android:layout_width="72dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="228dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/pickaxeMetalCostNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pickaxeMetalCostNum"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/axeMetalCostNum"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/buyAxe"
+        android:id="@+id/buyAxe2"
         android:layout_width="100dp"
         android:layout_height="62dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="156dp"
         android:onClick="buyAxe"
         android:text="Buy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pickaxeWoodCostNum"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="228dp"
+        android:layout_marginRight="228dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pickaxeWoodCostName"
+        app:layout_constraintTop_toBottomOf="@+id/pickaxeName" />
+
+    <TextView
+        android:id="@+id/pickaxeWoodCostName"
+        android:layout_width="72dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/pickaxeWoodCostNum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyPickaxe" />
 
     <TextView
         android:id="@+id/pickaxeOwned"
@@ -35,20 +135,23 @@
         android:id="@+id/axeName"
         android:layout_width="120dp"
         android:layout_height="62dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="132dp"
         android:layout_marginRight="132dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buyAxe2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/axeOwned"
         android:layout_width="61dp"
         android:layout_height="62dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:gravity="center_horizontal|center_vertical"
@@ -61,13 +164,16 @@
         android:id="@+id/pickaxeName"
         android:layout_width="120dp"
         android:layout_height="62dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="132dp"
         android:layout_marginRight="132dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buyPickaxe"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -81,4 +187,5 @@
         android:text="Buy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
