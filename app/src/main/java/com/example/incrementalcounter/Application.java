@@ -1,18 +1,32 @@
 package com.example.incrementalcounter;
 
+import android.app.Activity;
+import android.app.DirectAction;
 import android.content.res.Configuration;
+import android.os.Build;
+import android.os.Bundle;
+
+import androidx.annotation.RequiresApi;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 
 public class Application extends android.app.Application {
     private Resource[] resources;
     private Item[] items;
+    private int clickRate = 1;
+    private Resource wood, metal;
+    private int resourceValue = 0;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         // Required initialization logic here!
 
-        Resource wood = new Resource("Wood");
-        Resource metal = new Resource("Metal");
+        wood = new Resource("Wood");
+        metal = new Resource("Metal");
         Resource[] resources= {wood, metal };
         this.resources = resources;
         Calculator calc = new Calculator(this.resources);
@@ -29,6 +43,15 @@ public class Application extends android.app.Application {
 
     }
 
+    private Activity mCurrentActivity = null;
+    public Activity getCurrentActivity(){
+        return mCurrentActivity;
+    }
+
+    public void setCurrentActivity(Activity mCurrentActivity){
+        this.mCurrentActivity = mCurrentActivity;
+    }
+
     public Resource[] getGameResources()
     {
         return this.resources;
@@ -37,6 +60,35 @@ public class Application extends android.app.Application {
     public Item[] getGameItems()
     {
         return this.items;
+    }
+
+    public int getClickRate()
+    {
+        return clickRate;
+    }
+
+    public void manualCollection(){
+
+
+        switch(StaticUtility.getRadioValue()) {
+            case 0:
+                break;
+            case 1:
+                wood.manualCollection(clickRate);
+                break;
+            case 2:
+                metal.manualCollection(clickRate);
+                break;
+        }
+
+
+    }
+
+
+
+    public void increaseClickRate(int value)
+    {
+        clickRate += value;
     }
 
     // Called by the system when the device configuration changes while your component is running.

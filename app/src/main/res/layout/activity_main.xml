@@ -11,8 +11,8 @@
         android:id="@+id/metal"
         android:layout_width="173dp"
         android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="28dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
@@ -24,8 +24,8 @@
         android:id="@+id/wood"
         android:layout_width="173dp"
         android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginTop="24dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/metalTotal"
-        android:layout_width="173dp"
+        android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_marginStart="33dp"
         android:layout_marginLeft="33dp"
@@ -48,7 +48,7 @@
 
     <TextView
         android:id="@+id/woodTotal"
-        android:layout_width="173dp"
+        android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_marginStart="33dp"
         android:layout_marginLeft="33dp"
@@ -63,12 +63,51 @@
         android:id="@+id/upgradesButton"
         android:layout_width="150dp"
         android:layout_height="76dp"
-        android:layout_marginBottom="71dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="72dp"
         android:onClick="openUpgrades"
-        android:text="Button"
+        android:text="Upgrades"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/collectButton"
+        android:layout_width="150dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginBottom="72dp"
+        android:onClick="onManualCollectionClicked"
+        android:text="Collect"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:layout_width="30dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/metal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonWood"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:onClick = "onRadioButtonClicked" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMetal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:onClick = "onRadioButtonClicked"
+            android:layout_weight="1" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

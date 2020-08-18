@@ -1,36 +1,54 @@
 package com.example.incrementalcounter;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import static java.lang.Integer.parseInt;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
-    private static final String VALUE = "com.example.incrmentalcounter.VALUE";
-    private static final String RUNBOOLEAN = "com.example.incrementalcounter.RUNBOOLEAN";
-    public static int value = 0;
-    private boolean run = true;
+    protected Application application;
+    private TextView woodViewName, metalViewName, woodViewTotal, metalViewTotal;
+    private Resource wood, metal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Application appState = ((Application)getApplicationContext());
-        Resource[] resources = appState.getGameResources();
+        application = ((Application)this.getApplicationContext());
+        Resource[] resources = application.getGameResources();
+
+            wood = resources[0];
+            metal = resources[1];
 
             TextView textView = findViewById(R.id.wood);
-            textView.setText(resources[0].getName());
-            textView = findViewById(R.id.metal);
-            textView.setText(resources[1].getName());
+            woodViewName = textView;
+            textView.setText(wood.getName());
 
-            ResourceView[] rv = {new ResourceView(resources[0], (TextView) findViewById(R.id.woodTotal)),
-                    new ResourceView(resources[1], (TextView) findViewById(R.id.metalTotal))};
+            textView = findViewById(R.id.metal);
+            metalViewName = textView;
+            textView.setText(metal.getName());
+
+            textView = findViewById(R.id.woodTotal);
+            woodViewTotal = textView;
+
+            textView = findViewById(R.id.metalTotal);
+            metalViewTotal = textView;
+
+            ResourceView[] rv = {new ResourceView(wood, woodViewTotal),
+                    new ResourceView(metal, metalViewTotal)};
 
             TextViewUpdater tvu = new TextViewUpdater(rv);
 
@@ -45,5 +63,42 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioButtonWood:
+                if (checked)
+                    StaticUtility.setRadioValue(1);
+                    break;
+            case R.id.radioButtonMetal:
+                if (checked)
+                    StaticUtility.setRadioValue(2);
+                    break;
+        }
+
+
+    }
+
+    public void onManualCollectionClicked(View view)
+    {
+        application = ((Application)getApplicationContext());
+        application.manualCollection();
+
+        switch(StaticUtility.getRadioValue()) {
+            case 0:
+                break;
+            case 1:
+                woodViewTotal.setText(Integer.toString(wood.getTotal()));
+                break;
+            case 2:
+                metalViewTotal.setText(Integer.toString(metal.getTotal()));
+                break;
+        }
+    }
+
 
 }
