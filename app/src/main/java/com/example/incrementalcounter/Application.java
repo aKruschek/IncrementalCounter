@@ -1,16 +1,8 @@
 package com.example.incrementalcounter;
 
 import android.app.Activity;
-import android.app.DirectAction;
 import android.content.res.Configuration;
-import android.os.Build;
-import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 
 public class Application extends android.app.Application {
     private Resource[] resources;
