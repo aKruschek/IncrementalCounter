@@ -9,7 +9,6 @@ public class Application extends android.app.Application {
     private Item[] items;
     private int clickRate = 1;
     private Resource wood, metal;
-    private int resourceValue = 0;
 
 
     @Override
@@ -33,15 +32,6 @@ public class Application extends android.app.Application {
 
         this.items = new Item[]{pickaxe, axe};
 
-    }
-
-    private Activity mCurrentActivity = null;
-    public Activity getCurrentActivity(){
-        return mCurrentActivity;
-    }
-
-    public void setCurrentActivity(Activity mCurrentActivity){
-        this.mCurrentActivity = mCurrentActivity;
     }
 
     public Resource[] getGameResources()
